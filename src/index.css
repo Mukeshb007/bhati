@@ -8,51 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Portfolio Theme */
+    --background: 222 84% 3%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 84% 4%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 84% 4%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 194 100% 65%;
+    --primary-foreground: 222 84% 3%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222 84% 8%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 222 84% 6%;
+    --muted-foreground: 215.4 16.3% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 194 100% 65%;
+    --accent-foreground: 222 84% 3%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 222 84% 8%;
+    --input: 222 84% 8%;
+    --ring: 194 100% 65%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Portfolio Specific Colors */
+    --hero-glow: 194 100% 65%;
+    --glass: 222 84% 4% / 0.8;
+    --glass-border: 222 84% 15% / 0.3;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(194 100% 65% / 0.1), hsl(194 100% 45% / 0.05));
+    --gradient-hero: linear-gradient(135deg, hsl(222 84% 3%), hsl(222 84% 6%));
+    --gradient-card: linear-gradient(135deg, hsl(222 84% 4% / 0.9), hsl(222 84% 6% / 0.7));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(194 100% 65% / 0.3);
+    --shadow-card: 0 8px 32px hsl(222 84% 1% / 0.4);
+    --shadow-hero: 0 0 60px hsl(194 100% 65% / 0.15);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 222 84% 4%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 194 100% 65%;
+    --sidebar-primary-foreground: 222 84% 3%;
+    --sidebar-accent: 222 84% 8%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 84% 8%;
+    --sidebar-ring: 194 100% 65%;
   }
 
   .dark {
@@ -100,6 +109,35 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-[var(--shadow-card)];
+  }
+  
+  .hero-glow {
+    box-shadow: var(--shadow-hero);
+  }
+  
+  .typing-cursor::after {
+    content: '|';
+    @apply animate-pulse text-primary;
+  }
+  
+  .particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 }
