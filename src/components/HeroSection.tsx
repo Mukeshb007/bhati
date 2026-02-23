@@ -93,7 +93,7 @@ export default function HeroSection() {
             Data Analytics
           </Badge>
           <Badge variant="secondary" className="px-4 py-2 text-sm bg-tech-green/10 text-tech-green border-tech-green/20">
-            AI Development
+            AI Development and Automation
           </Badge>
         </div>
 
